@@ -1,0 +1,8 @@
+flask
+PIL
+pytesseract
+opencv-python
+secrets
+os
+SpeechRecognition
+pyaudio
