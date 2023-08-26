@@ -1,54 +1,33 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Website to Help People with Dyslexia</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    </head>
-    <body>
-        <nav>
-            <input type="checkbox" id="check"> 
-            <label for="check" class="checkbtn">
-                <i class="fa fa-bars"></i>
-            </label>
-            <label class="logo">DyslexiaElevate</label>
-            <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a class="active" href="./about.html">About Us</a></li>
-                <li><a href="./features.html">Features</a></li>
-            </ul>
-        </nav>
-        <div id="offers">
-            <img class="leftfloat" src="inclusion.png"/>
-            <h1 class="inlinetext"><br>OUR MISSION</h1>
-            <img class ="rightfloat" src="question.png"/>
-            <h1 class="inlinetext"><br>Why Us?</h1>
-            <img class ="rightrightfloat" src="team.png"/>
-            <h1 class="inlinetext"><br>OUR TEAM</h1>
-        </div>
-        <h4 class="abouttext">We are dedicated to creating a <br>digital platform that embraces<br> diversity, breaks down 
-            barriers,<br> and empowers individuals of all <br>backgrounds and abilities to <br>access, 
-            understand, and engage<br>with information seamlessly. We<br> believe that education is a <br>powerful tool for empowerment. <br>Through our features like <br> spelling and reading exercises, <br>we strive 
-            to enhance language<br> skills for dyslexic learners.</h4>
-        <h4 class="abouttextmid">When you choose our platform,<br> you are choosing the platform<br> that understands the unique<br> challenges of dyslexic learners. <br> We recognize the transformative 
-            <br> power of technology in overcoming<br> challenges. 
-            We offer technology<br> solutions that aid reading<br> and 
-            improve spelling skills.<br> These tools enhance learning<br>
-            while boosting the confidence<br>  and independence
-            of learners.</h4>
-        <h4 class="abouttxt" >Behind DyslexiaElevate stands<br>
-            two passionate individuals<br> committed to creating a<br> platform that
-            embraces<br> inclusivity and diversity. <br><br>Please don't hesitate<br> to contact us if you have<br> any questions, concerns, or<br> would like more information.
-            <br>Always here for you!
-            <br>
-            <a href="https://instagram.com/kimberlymichela?igshid=OGQ5ZDc2ODk2ZA==">
-            <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://instagram.com/nfldty?igshid=OGQ5ZDc2ODk2ZA==">
-            <i class="fa-brands fa-instagram"></i>
-            </a>
-        </h4>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+    <div id="offers">
+        <img class="leftfloat" src="{{ url_for('static', filename='img/inclusion.png') }}"/>
+        <h1 class="inlinetext"><br>OUR MISSION</h1>
+        <img class ="rightfloat" src="{{ url_for('static', filename='img/question.png') }}"/>
+        <h1 class="inlinetext"><br>Why Us?</h1>
+        <img class ="rightrightfloat" src="{{ url_for('static', filename='img/team.png') }}"/>
+        <h1 class="inlinetext"><br>OUR TEAM</h1>
+    </div>
+    <h4 class="abouttext">We are dedicated to creating a <br>digital platform that embraces<br> diversity, breaks down 
+        barriers,<br> and empowers individuals of all <br>backgrounds and abilities to <br>access, 
+        understand, and engage<br>with information seamlessly. We<br> believe that education is a <br>powerful tool for empowerment. <br>Through our features like <br> spelling and reading exercises, <br>we strive 
+        to enhance language<br> skills for dyslexic learners.</h4>
+    <h4 class="abouttextmid">When you choose our platform,<br> you are choosing the platform<br> that understands the unique<br> challenges of dyslexic learners. <br> We recognize the transformative 
+        <br> power of technology in overcoming<br> challenges. 
+        We offer technology<br> solutions that aid reading<br> and 
+        improve spelling skills.<br> These tools enhance learning<br>
+        while boosting the confidence<br>  and independence
+        of learners.</h4>
+    <h4 class="abouttxt" >Behind DyslexiaElevate stands<br>
+        two passionate individuals<br> committed to creating a<br> platform that
+        embraces<br> inclusivity and diversity. <br><br>Please don't hesitate<br> to contact us if you have<br> any questions, concerns, or<br> would like more information.
+        <br>Always here for you!
+        <br>
+        <a href="https://instagram.com/kimberlymichela?igshid=OGQ5ZDc2ODk2ZA==">
+        <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://instagram.com/nfldty?igshid=OGQ5ZDc2ODk2ZA==">
+        <i class="fa-brands fa-instagram"></i>
+        </a>
+    </h4>
+{% endblock %}  

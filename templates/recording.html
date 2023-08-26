@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+    <h2 class='learn'>{{ speech }}</h2>
+    {% if not text%}
+        <a href="/record"><button class="learn" style="cursor:pointer">Start</button></a>
+    {% endif %}
+    {% if first_try == "yes" %}
+        <p>Congratulations! You got it on a first try</p>
+        <a href="/audio"><button class="learn" style="cursor:pointer">Learn Again?</button></a>
+    {% else %}
+        {% if text %}
+            <p>{{ text }}</p>
+            <p>You got {{ score }} score </p>
+            <p>Wrong words {{ incorrect }}</p>
+            <a href="/speech"><button class="learn" style="cursor:pointer">Start Learning</button></a>
+        {% endif %}
+    {% endif %}
+{% endblock %}

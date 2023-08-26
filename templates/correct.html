@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block content %}
+    
+    {% if message %}
+        <p class="learn">{{ message }}, your score : {{ score }}</p>
+    {% endif %}
+</br>
+    <a href="/learn"><button href="/learn" class="learn" style="cursor:pointer">New Word</button></a></br> </br> </br>
+    <a href="/finished"><button class="learn" style="cursor:pointer">Quit</button></a>      
+{% endblock %}

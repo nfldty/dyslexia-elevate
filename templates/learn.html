@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block content %}
+    </br>
+    <button onclick="toSound(this)" class="learn">{{ word }}</button>
+    </br>
+    </br>
+    <form method="POST" enctype="multipart/form-data">
+        <input class = 'learn' class="learn" type = "text" name="text">
+        <input class = "learn" type="submit" value="submit">
+    </form>
+    {% if written %}   
+        <p class="learn">You Wrote</p>
+
+        {% for i in range(len_written) %}
+            {% if i < len_word and written[i] == word[i] %}
+                <p class="learn" style="background-color:#66FF99;display:inline">{{ written[i] }}</p>
+            {% else %}
+                <p class="learn" style="background-color:#F75D59;display:inline">{{ written[i] }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if message %}
+        <p class="learn">{{ message }}</p>
+    {% endif %}
+    
+{% endblock %}

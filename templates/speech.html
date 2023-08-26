@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    </br>
+    <button class='learn' onclick="toSound(this)" style="cursor:pointer">{{ word }}</button> </br></br>
+    {% if not correct or correct=="false" %}
+        <a href="/speech-start"><button class="learn" style="cursor:pointer">Start</button></a> 
+    {% endif %}
+    {% if not single_word %}
+        {% if text %}
+            <p>{{ text }}</p>
+            <p>You got {{ score }} score </p>
+            <p>Wrong words {{ incorrect }}</p>
+            <a href="/speech-start"><button class="learn" style="cursor:pointer">Next Word</button></a> 
+            
+        {% endif %}
+    {% else %}
+        {% if correct=="true" %}
+            <p>Correct</p>
+            <a href="/speech"><button class="learn" style="cursor:pointer">Next Word</button></a>
+        {% else %}
+            <p>{{ text }}</p>
+            
+            <a href="/speech"><button class="learn" style="cursor:pointer">Try Again</button></a>
+        {% endif %}
+    {% endif %}
+{% endblock %}

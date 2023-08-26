@@ -1,24 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Website to Help People with Dyslexia</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    </head>
-    <body>
-        <nav>
-            <input type="checkbox" id="check"> 
-            <label for="check" class="checkbtn">
-                <i class="fa fa-bars"></i>
-            </label>
-            <label class="logo">DyslexiaElevate</label>
-            <ul>
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Features</a></li>
-            </ul>
-        </nav>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website to Help people with dyslexia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/new_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <script>
+      function toSound(element) {
+        let text = element.innerHTML;
+        // Create a new SpeechSynthesisUtterance object
+        let utterance = new SpeechSynthesisUtterance();
+
+        // Set the text and voice of the utterance
+        utterance.text = text;
+        utterance.voice = window.speechSynthesis.getVoices()[5];
+
+        // Speak the utterance
+        window.speechSynthesis.speak(utterance);
+    } 
+
+      function showSummary() {
+        
+        document.getElementById("summary").style.display="inline";
+        var button = document.getElementById("summary-button");
+        button.onclick="hideSummary()";
+
+      }
+      
+      function hideSummary() {
+        
+        document.getElementById("summary").style.display="none";
+        var button = document.getElementById("summary-button");
+        button.onclick="showSummary()";
+
+      }
+    </script>
+</head>
+<body>
+  <nav>
+    <input type="checkbox" id="check"> 
+    <label for="check" class="checkbtn">
+        <i class="fa fa-bars"></i>
+    </label>
+    <label class="logo">DyslexiaFriendly</label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/features">Features</a></li>
+    </ul>
+  </nav>
+  {% block content %}{% endblock %}
+</body>
 </html>

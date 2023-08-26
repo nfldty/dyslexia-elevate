@@ -1,31 +1,29 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Upload File</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    </head>
-    <body>
-        <nav>
-            <input type="checkbox" id="check"> 
-            <label for="check" class="checkbtn">
-                <i class="fa fa-bars"></i>
-            </label>
-            <label class="logo">DyslexiaElevate</label>
-            <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="./about.html">About Us</a></li>
-                <li><a class="active" href="./features.html">Features</a></li>
-            </ul>
-        </nav>
-        <img id="waitingspongebob" src="./waiting.png"/>
+{% extends 'layout.html' %}
+{% block content %}
+    {% if not converted_text %}
+        
+        <img id="waitingspongebob" src="{{url_for('static', filename='img/waiting.png')}}"/>
         <br><br><br><br><br>
-        <form>
+        <form method="POST" enctype="multipart/form-data">
             <i class="fas fa-upload"></i>
-            <input class = 'border' type = "file" method = 'post' id = "uploadedfile" accept = ".doc,.docx,.pdf" multiple/>
+            <input class = 'border' type = "file" name="file" method = 'post' id = "uploadedfile" required/>
             <button>submit</button>
         </form>
-    </body>
-</html>
+        
+    
+    
+    {% else %}
+        
+        
+        {% for i in range(data_size) %}
+            {% if d["conf"][i] >= 60 %}
+                <button class="word-button" onclick="toSound(this)" style="cursor:pointer;position:absolute;top:{{ d['top'][i]-100 }}px;left:{{  d['left'][i] }}px;width:{{ d['width'][i] }}px;height:{{ d['height'][i] }}px;font-size:{{ font_size }}px">{{ d['text'][i] }}</button>
+            {% endif %}
+        {% endfor %}
+        
+        <a href="/"><button id="home-button" action="/">Home</button></a>       
+        <button id="summary-button" onclick="showSummary()">Show Summary</button>
+        <p id="summary" style="display:none">{{ summary }}</p>
+    {% endif %}
+
+{% endblock %}
