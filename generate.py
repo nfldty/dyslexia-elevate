@@ -37,6 +37,7 @@ def generate():
             image = pipe(sentence).images[0]
             image.save(f'static/generated/generated_image/words_{i}.jpg')
 
+    i=0
     prompt = 'generate one word that is hard to read for dyslexic people'
     while i < 5:
         response = co.generate(model='command',
@@ -51,13 +52,13 @@ def generate():
                                 return_likelihoods='NONE')
         word = response.generations[0].text
         if word in words:
-            prompt = 'generate one word that is hard to read for dyslexic people'
+            prompt = f'generate one word that is hard to read for dyslexic people that is different than {word}'
         else:
             i += 1
             words.append(word)
-            prompt = 'create a random one sentence story within 10 words'
+            prompt = 'generate one word that is hard to read for dyslexic people'
             image = pipe(word).images[0]
-            image.save(f'static/generated/generated_image/words_{i}.jpg')
+            image.save(f'static/generated/generated_image/story_{i}.jpg')
 
     with open("static/generated/generated_data.py", "a") as f:
         f.write(f"challenging_words={words}" + '\n')
